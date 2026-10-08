@@ -1,0 +1,38 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.41/schema.json",
+  "app_specific_configuration_path": "$Env:KOMOREBI_CONFIG_HOME/applications.json",
+  "window_hiding_behaviour": "Cloak",
+  "cross_monitor_move_behaviour": "Insert",
+  "default_workspace_padding": 2,
+  "default_container_padding": 2,
+  "border": true,
+  "border_width": 2,
+  "border_offset": 0,
+  "border_colours": {
+    "single":"#494b4e",
+    "floating":"#272729",
+    "monocle":"#1b1b1d",
+    "unfocused":"#151618"
+  },
+  "mouse_follows_focus": false,
+  "transparency_alpha": 250,
+  "transparency": true,
+  "animation": {
+    "enabled": true,
+    "duration": 400,
+    "fps": 120,
+    "style": {
+      "movement": "EaseOutBack",
+      "transparency": "Linear"
+    }
+  },
+  "stackbar": {
+    "height": 24,
+    "mode": "Never",
+    "label": "Title",
+    "tabs": {
+      "width": 200,
+      "font_size": 16
+    }
+  }
+}
