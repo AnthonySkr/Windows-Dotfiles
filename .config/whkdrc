@@ -1,41 +1,39 @@
 .shell powershell
 
-# Reload whkd configuration
+## Reload whkd configuration
 win + o                 : taskkill /f /im whkd.exe; Start-Process whkd -WindowStyle hidden
 win + shift + o         : komorebic reload-configuration
-
-win + i                 : komorebic toggle-shortcuts
 
 win + q                 : komorebic close
 win + m                 : komorebic minimize
 
-# Focus windows
+## Focus windows
 win + left              : komorebic focus left
 win + down              : komorebic focus down
 win + up                : komorebic focus up
 win + right             : komorebic focus right
 
-# Move windows
+## Move windows
 win + shift + left      : komorebic move left
 win + shift + down      : komorebic move down
 win + shift + up        : komorebic move up
 win + shift + right     : komorebic move right
 win + shift + return    : komorebic promote
 
-# Manipulate windows
+## Manipulate windows
 win + f                 : komorebic toggle-float
 
 # alt + ctrl + f          : komorebic toggle-monocle
 
-# Window manager options
+## Window manager options
 win + shift + r         : komorebic retile
 win + p                 : komorebic toggle-pause
 
-# Layouts
+## Layouts
 win + x                 : komorebic flip-layout horizontal
 win + y                 : komorebic flip-layout vertical
 
-# Workspaces
+## Workspaces
 win + 1                 : komorebic focus-workspace 0
 win + 2                 : komorebic focus-workspace 1
 win + 3                 : komorebic focus-workspace 2
@@ -45,7 +43,7 @@ win + 6                 : komorebic focus-workspace 5
 win + 7                 : komorebic focus-workspace 6
 win + 8                 : komorebic focus-workspace 7
 
-# Move windows across workspaces
+## Move windows across workspaces
 win + shift + 1         : komorebic move-to-workspace 0
 win + shift + 2         : komorebic move-to-workspace 1
 win + shift + 3         : komorebic move-to-workspace 2
@@ -56,7 +54,7 @@ win + shift + 7         : komorebic move-to-workspace 6
 win + shift + 8         : komorebic move-to-workspace 7
 
 
-# App shortcuts - these require shell to be pwsh / powershell
+## App shortcuts - these require shell to be pwsh / powershell
 # The apps will be focused if open, or launched if not open
 # alt + f                 : if ($wshell.AppActivate('Firefox') -eq $False) { start firefox }
 # alt + b                 : if ($wshell.AppActivate('Chrome') -eq $False) { start chrome }

@@ -31,7 +31,7 @@
 
 /* Bar */
 .yasb-bar {
-    padding: 0;
+    padding: 0 10px;
     margin: 0;
     background-color: var(--crust);
 }
@@ -260,6 +260,160 @@
     padding: 6px 4px 2px 4px;
 }
 .memory-popup .stats .stat-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    font-family: 'Segoe UI';
+    padding: 0 4px 12px 4px;
+}
+
+.cpu-popup {
+    background-color: rgba(28, 28, 28, 0.7);
+    min-width: 400px;
+}
+
+.cpu-popup .header {
+    background: transparent;
+    padding: 12px 16px;
+}
+.cpu-popup .header .text {
+    font-size: 16px;
+    font-family: "Segoe UI";
+    color: rgb(255, 255, 255);
+}
+.cpu-popup .header .pin-btn {
+    font-size: 14px;
+    background: transparent;
+    font-family: "Segoe Fluent Icons";
+    border: none;
+    padding: 6px;
+    color: rgba(255, 255, 255, 0.6);
+}
+.cpu-popup .header .pin-btn:hover {
+    color: rgba(255, 255, 255, 0.6);
+}
+.cpu-popup .header .pin-btn.pinned {
+    color: #ffffff;
+}
+/* Graph area */
+.cpu-popup .graph-container {
+    background:  transparent;
+    min-height: 64px;
+}
+.cpu-popup .cpu-graph {
+    color: #0f6bff;   /* <-- set the graph line/fill color */
+}
+.cpu-popup .cpu-graph-grid {
+    color: rgba(255, 255, 255, 0.05);  /* set the grid line color */
+}
+.cpu-popup .graph-title {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'Segoe UI';
+    padding: 0px 0px 4px 14px;
+}
+/* Stats grid */
+.cpu-popup .stats {
+    background: transparent;
+    padding: 16px;
+}
+.cpu-popup .stats .stat-item {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin: 8px;
+}
+.cpu-popup .stats .stat-label {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.65);
+    font-family: 'Segoe UI';
+    font-weight: 400;
+    padding: 6px 4px 2px 4px;
+}
+.cpu-popup .stats .stat-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    font-family: 'Segoe UI';
+    padding: 0 4px 12px 4px;
+}
+
+.gpu-popup {
+    background-color: rgba(28, 28, 28, 0.7);
+    min-width: 400px;
+}
+
+.gpu-popup .header {
+    background: transparent;
+    padding: 12px 16px;
+}
+.gpu-popup .header .text {
+    font-size: 16px;
+    font-family: "Segoe UI";
+    color: rgb(255, 255, 255);
+}
+.gpu-popup .header .pin-btn {
+    font-size: 14px;
+    background: transparent;
+    font-family: "Segoe Fluent Icons";
+    border: none;
+    padding: 6px;
+    color: rgba(255, 255, 255, 0.6);
+}
+.gpu-popup .header .pin-btn:hover {
+    color: rgba(255, 255, 255, 0.6);
+}
+.gpu-popup .header .pin-btn.pinned {
+    color: #ffffff;
+}
+/* Graph area */
+.gpu-popup .graph-container {
+    background:  transparent;
+    min-height: 64px;
+}
+.gpu-popup .gpu-graph {
+    color: #0f6bff;   /* set the graph line/fill color */
+}
+.gpu-popup .gpu-graph-grid {
+    color: rgba(255, 255, 255, 0.05);  /* set the grid line color */
+}
+.gpu-popup .gpu-temp-graph {
+    color: #ff6b35;  /* orange for temperature */
+}
+.gpu-popup .gpu-temp-graph-grid {
+    color: rgba(255, 255, 255, 0.05);  /* set the grid line color */
+}
+.gpu-popup .graph-title {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'Segoe UI';
+    padding: 0px 0px 4px 14px;
+    margin-top: 12px; /* Add top margin to separate from 2nd graph */
+}
+.gpu-popup .graph-title.first {
+    margin-top: 0px; /* Remove top margin for the first graph title */
+}
+/* Stats grid */
+.gpu-popup .stats {
+    background: transparent;
+    padding: 16px;
+}
+.gpu-popup .stats .stat-item {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin: 8px;
+}
+.gpu-popup .stats .stat-label {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.65);
+    font-family: 'Segoe UI';
+    font-weight: 400;
+    padding: 6px 4px 2px 4px;
+}
+.gpu-popup .stats .stat-value {
     font-size: 20px;
     font-weight: 700;
     color: #ffffff;
@@ -854,4 +1008,76 @@
 .vscode-menu .contents .item:hover {
     background-color: rgba(255, 255, 255, 0.1);
     cursor: pointer;
+}
+
+.whkd-widget {
+    padding: 0 6px 0 6px;
+}
+.whkd-widget .icon {
+    font-size: 18px;
+}
+.whkd-popup .edit-config-button {
+    background-color:#1743a1;
+    color: #ffffff;
+    padding: 4px 8px 6px 8px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 4px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.whkd-popup .keybind-buttons-container {
+    min-width: 240px;
+}
+.whkd-popup .keybind-button {
+    background-color: #343538;
+    color: white;
+    padding: 4px 8px 6px 8px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px inset #4f5055;
+    border-bottom: 2px inset #4f5055;
+    border-radius: 4px;
+    font-family: 'JetBrainsMono NFP';
+}
+.whkd-popup .keybind-button.special {
+    background-color: #343538;
+}
+.whkd-popup .keybind-row:hover{
+    background-color: rgba(136, 138, 155, 0.2);
+    border-radius: 8px;
+}
+.whkd-popup .plus-separator {
+    padding: 0 0px;
+    border:none;
+    font-size: 16px;
+    font-weight: bold;
+    background-color:transparent
+}
+.whkd-popup .filter-input {
+    padding: 0 8px 2px 8px;
+    font-size: 14px;
+    font-family: 'Segoe UI', sans-serif;
+    border: 1px solid #2e2e2e;
+    border-radius: 4px;
+    outline: none;
+    color: white;
+    background-color: #2e2e2e;
+    min-height: 32px;
+}
+.whkd-popup .filter-input:focus {
+    border: 1px solid #0078D4;
+}
+.whkd-popup .keybind-command {
+    font-size: 14px;
+}
+.whkd-popup .keybind-header {
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    padding: 8px 0;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
 }

@@ -3,8 +3,9 @@
   "app_specific_configuration_path": "$Env:KOMOREBI_CONFIG_HOME/applications.json",
   "window_hiding_behaviour": "Cloak",
   "cross_monitor_move_behaviour": "Insert",
-  "default_workspace_padding": 2,
-  "default_container_padding": 2,
+  "default_workspace_padding": 3,
+  "default_container_padding": 3,
+  "mouse_follows_focus": true,
   "border": true,
   "border_width": 2,
   "border_offset": 0,
@@ -14,7 +15,6 @@
     "monocle":"#1b1b1d",
     "unfocused":"#151618"
   },
-  "mouse_follows_focus": false,
   "transparency_alpha": 250,
   "transparency": true,
   "animation": {

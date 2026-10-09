@@ -3,14 +3,14 @@ watch_config: true
 debug: false
 update_check: true
 komorebi:
-  start_command: "komorebic start --whkd"
-  stop_command: "komorebic stop --whkd"
-  reload_command: "komorebic stop --whkd && komorebic start whkd"
+  start_command: "komorebic start --whkd --masir"
+  stop_command: "komorebic stop --whkd --masir"
+  reload_command: "komorebic stop --whkd --masir && komorebic start --whkd --masir"
 
 bars:
   primary-bar:
     enabled: true
-    screens: ['**']
+    screens: ['*']
     class_name: yasb-bar
     alignment:
       position: top
@@ -43,18 +43,24 @@ bars:
       - wallpapers
       - komorebi_control
       - komorebi_active_layout
-      - grouped_widgets_1
-      - grouped_widgets_2
+      - komorebi-workspace-grouper
       - vscode
+      - media-grouper
       center:
       - clock
+      - whkd
       - weather
       right:
-      - grouped_widgets_3
+      - brightness
+      - volume
+      - microphone
+      - bluetooth
+      - systeminfo-grouper
       - power_menu
 
 
 widgets:
+# Left
   home:
     type: yasb.home.HomeWidget
     options:
@@ -88,18 +94,22 @@ widgets:
       change_automatically: false
       update_interval: 60
       gallery:
-          enabled: true
-          blur: true
-          image_width: 220
-          image_per_page: 8
-          show_buttons: false
-          orientation: "portrait"
-          image_spacing: 8
-          lazy_load: true
-          lazy_load_delay: 80
-          lazy_load_fadein: 400
-          image_corner_radius: 20
-          enable_cache: true
+        enabled: true
+        blur: true
+        image_width: 220
+        image_per_page: 8
+        show_buttons: false
+        orientation: "portrait"
+        image_spacing: 8
+        lazy_load: true
+        lazy_load_delay: 80
+        lazy_load_fadein: 400
+        image_corner_radius: 20
+        enable_cache: true
+      keybindings:
+        - keys: "ctrl+alt+w"
+          action: "toggle_gallery"
+          screen: "cursor"
 
   komorebi_control:
       type: "komorebi.control.KomorebiControlWidget"
@@ -159,7 +169,7 @@ widgets:
         offset_left: 2
         show_layout_icons: true
 
-  grouped_widgets_1:
+  komorebi-workspace-grouper:
     type: "yasb.grouper.GrouperWidget"
     options:
       class_name: "grouped-widgets"
@@ -183,7 +193,30 @@ widgets:
       hide_if_offline: false
       animation: false
 
-  grouped_widgets_2:
+  vscode:
+    type: "yasb.vscode.VSCodeWidget"
+    options:
+      label: "<span>\ue943</span>"
+      label_alt: "<span>\ue943</span> recents"
+      menu_title: "<span style='font-weight:bold'>VS</span>Code recents"
+      icons:
+        folder: "\ue8b7"
+        file: "\ue8e5"
+        remote: "\ue8af"
+      truncate_to_root_dir: true
+      max_number_of_folders: 50
+      max_number_of_files: 50 # set to 0 if you only want folders
+      modified_date_format: "Date modified: %Y-%m-%d %H:%M"
+      cli_command: "code" # or "codium" or "windsurf" or any other CLI command to open the workspace
+      menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        alignment: "center"
+        offset_top: 6
+        offset_left: 0
+
+  media-grouper:
     type: "yasb.grouper.GrouperWidget"
     options:
       class_name: "grouped-widgets"
@@ -203,7 +236,7 @@ widgets:
         on_left: "toggle_media_menu"
         on_middle: "toggle_play_pause"
         on_right: "toggle_label"
-      hide_empty: false
+      hide_empty: true
       max_field_size:
         label: 40
         label_alt: 20
@@ -256,28 +289,7 @@ widgets:
       framerate: 60
       hide_empty: false
 
-  vscode:
-    type: "yasb.vscode.VSCodeWidget"
-    options:
-      label: "<span>\ue943</span>"
-      label_alt: "<span>\ue943</span> recents"
-      menu_title: "<span style='font-weight:bold'>VS</span>Code recents"
-      icons:
-        folder: "\ue8b7"
-        file: "\ue8e5"
-        remote: "\ue8af"
-      truncate_to_root_dir: false
-      max_number_of_folders: 50
-      max_number_of_files: 50 # set to 0 if you only want folders
-      modified_date_format: "Date modified: %Y-%m-%d %H:%M"
-      cli_command: "code" # or "codium" or "windsurf" or any other CLI command to open the workspace
-      menu:
-        blur: true
-        round_corners: true
-        round_corners_type: "normal"
-        alignment: "center"
-        offset_top: 6
-        offset_left: 0
+# Center
 
   clock:
     type: "yasb.clock.ClockWidget"
@@ -311,6 +323,29 @@ widgets:
       callbacks:
         on_left: "toggle_calendar"
         on_right: "toggle_label"
+
+  whkd:
+    type: "yasb.whkd.WhkdWidget"
+    options:
+      label: "<span>\uf11c</span>"
+      special_keys:
+        - key: "win"
+          key_replace: "\ue70f"
+        - key: "ctrl"
+          key_replace: "Ctrl"
+        - key: "alt" 
+          key_replace: "Alt"
+        - key: "shift"
+          key_replace: "Shift"
+        - key: "left"
+          key_replace: "\u2190"
+        - key: "right"
+          key_replace: "\u2192"
+        - key: "up"
+          key_replace: "\u2191"
+        - key: "down"
+          key_replace: "\u2193"
+
 
   weather:
     type: "yasb.weather.WeatherWidget"
@@ -359,228 +394,8 @@ widgets:
         current_line_width: 2
         current_line_style: "dot"
 
-  grouped_widgets_3:
-    type: "yasb.grouper.GrouperWidget"
-    options:
-      class_name: "grouped-widgets"
-      widgets: ["memory", "cpu", "gpu"]
-      container_padding:
-        top: 0
-        left: 2
-        bottom: 0
-        right: 6
-  
-  memory:
-    type: "yasb.memory.MemoryWidget"
-    options:
-      label: "<span>\uf4bc</span> RAM {virtual_mem_percent}%"
-      label_alt: "<span>\uf4bc</span> VIRT: {virtual_mem_percent}% SWAP: {swap_mem_percent}%"
-      update_interval: 5000
-      callbacks:
-        on_left: "toggle_menu"
-        on_right: "toggle_label"
-      memory_thresholds:
-        low: 25
-        medium: 50
-        high: 90
-      histogram_icons:
-        - "\u2581" # 0%
-        - "\u2581" # 10%
-        - "\u2582" # 20%
-        - "\u2583" # 30%
-        - "\u2584" # 40%
-        - "\u2585" # 50%
-        - "\u2586" # 60%
-        - "\u2587" # 70%
-        - "\u2588" # 80%+
-      menu:
-        enabled: true
-        show_graph: true
-        show_graph_grid: true
-        graph_history_size: 60
-  
-  cpu:
-    type: "yasb.cpu.CpuWidget"
-    options:
-      label: "CPU {info[percent][total]:.0f}"
-      progress_bar:
-        enabled: true
-        position: "left"
-        size: 14
-        thickness: 2
-        color: "#91d7e3"
-        background_color: "#242739"
-      update_interval: 2000
-      histogram_icons:
-        - "\u2581" # 0%
-        - "\u2581" # 10%
-        - "\u2582" # 20%
-        - "\u2583" # 30%
-        - "\u2584" # 40%
-        - "\u2585" # 50%
-        - "\u2586" # 60%
-        - "\u2587" # 70%
-        - "\u2588" # 80% +
-      histogram_num_columns: 8
-      callbacks:
-        on_right: "do_nothing"
+# Right
 
-  gpu:
-    type: "yasb.gpu.GpuWidget"
-    options:
-      label: "GPU {info[temp]}°C"
-      label_alt: "GPU : {info[utilization]} % - {info[temp]}°C"
-      progress_bar:
-        enabled: true
-        position: "left"
-        size: 14
-        thickness: 2
-        color: "#91d7e3"
-        background_color: "#242739"
-      update_interval: 2000
-      histogram_icons:
-        - "\u2581" # 0%
-        - "\u2581" # 10%
-        - "\u2582" # 20%
-        - "\u2583" # 30%
-        - "\u2584" # 40%
-        - "\u2585" # 50%
-        - "\u2586" # 60%
-        - "\u2587" # 70%
-        - "\u2588" # 80% +
-      histogram_num_columns: 8
-      callbacks:
-        on_right: "do_nothing"
-   
-  power_menu:
-    type: "yasb.power_menu.PowerMenuWidget"
-    options:
-      label: "\uf011"
-      uptime: true
-      blur: false
-      blur_background: true
-      animation_duration: 200
-      button_row: 3
-      buttons:
-        shutdown: ["\uf011", "Shut Down"]
-        restart: ["\uead2", "Restart"]
-        signout: ["\udb80\udf43", "Sign out"]
-        hibernate: ["\uf28e", "Hibernate"]
-        sleep: ["\u23fe", "Sleep"]
-        cancel: ["\ueab8", "Close"]
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 6
-  
-  
-  notifications:
-    type: "yasb.notifications.NotificationsWidget"
-    options:
-      label: "<span>\uf476</span> {count}"
-      label_alt: "{count} notifications"
-      hide_empty: true
-      tooltip: false
-      callbacks:
-        on_left: "toggle_notification"
-        on_right: "do_nothing"
-        on_middle: "toggle_label"
-      container_padding:
-        top: 0
-        left: 4
-        bottom: 0
-        right: 4
-
-  active_window:
-    type: "yasb.active_window.ActiveWindowWidget"
-    options:
-      label: "{win[title]}"
-      label_alt: "[class_name='{win[class_name]}' exe='{win[process][name]}' hwnd={win[hwnd]}]"
-      label_no_window: ""
-      label_icon: true
-      label_icon_size: 16
-      max_length: 36
-      max_length_ellipsis: "..."
-      monitor_exclusive: false
-
-  volume:
-    type: yasb.volume.VolumeWidget
-    options:
-      label: <span>{icon}</span>
-      label_alt: <span>{icon}</span>{level}
-      volume_icons:
-        muted: "\uE74F"
-        '10': "\uE992"
-        '30': "\uE993"
-        '60': "\uE994"
-        '100': "\uE995"
-      callbacks:
-        on_left: toggle_volume_menu
-        on_middle: "exec cmd.exe /c start ms-settings:sound"
-        on_right: toggle_mute
-      audio_menu:
-        blur: true
-        round_corners: true
-        round_corners_type: normal
-        border_color: system
-        alignment: right
-        direction: down
-        show_apps: true
-        show_app_labels: false
-        show_app_icons: true
-        show_apps_expanded: false
-        app_icons:
-          toggle_down: "\uE972"
-          toggle_up: "\uE971"
-
-  battery:
-    type: "yasb.battery.BatteryWidget"
-    options:
-      label: "<span>{icon}</span> {percent}%"
-      label_alt: "<span>{icon}</span> {percent}% | {power}W | {time_remaining}"
-      update_interval: 5000
-      time_remaining_natural: False
-      hide_unsupported: True
-      charging_options:
-        icon_format: "{charging_icon}"
-        blink_charging_icon: true
-        blink_interval: 500
-      status_thresholds:
-        critical: 10
-        low: 25
-        medium: 75
-        high: 95
-        full: 100
-      status_icons:
-        icon_charging: "\uf0e7"
-        icon_critical: "\uf244"
-        icon_low: "\uf243"
-        icon_medium: "\uf242"
-        icon_high: "\uf241"
-        icon_full: "\uf240"
-
-  bluetooth:
-    type: "yasb.bluetooth.BluetoothWidget"
-    options:
-      label: "<span>{icon}</span>"
-      label_alt: "{device_name}"
-      label_no_device: "NDC"
-      label_device_separator: ", "
-      max_length: 10
-      max_length_ellipsis: "..."
-      icons: 
-        bluetooth_on: "\udb80\udcaf"
-        bluetooth_off: "\udb80\udcb2"
-        bluetooth_connected: "\udb80\udcb1"
-      callbacks:
-        on_right: "exec cmd.exe /c start ms-settings:bluetooth"
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 3
-        offset: [ 1, 1 ]
-  
   brightness:
     type: "yasb.brightness.BrightnessWidget"
     options:
@@ -621,99 +436,36 @@ widgets:
         radius: 3
         offset: [ 1, 1 ]
 
-  update_check:
-    type: "yasb.update_check.UpdateCheckWidget"
+  volume:
+    type: yasb.volume.VolumeWidget
     options:
-      windows_update:
-        enabled: True
-        label: "<span>\uf0ab</span> {count}"
-        interval: 60
-        exclude: []
-      winget_update:
-        enabled: True
-        label: "<span>\uf0ab</span> {count}"
-        interval: 60
-        exclude: []
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 3
-        offset: [ 1, 1 ]
-
-  open_meteo:
-    type: yasb.open_meteo.OpenMeteoWidget
-    options:
-      label: "<span>\uE706</span>{temp}"
-      label_alt: '{location}: Min {min_temp}, Max {max_temp}, Humidity {humidity}'
-      tooltip: true
-      update_interval: 600
-      hide_decimal: true
-      units: metric
+      label: <span>{icon}</span>
+      label_alt: <span>{icon}</span>{level}
+      volume_icons:
+        muted: "\uE74F"
+        '10': "\uE992"
+        '30': "\uE993"
+        '60': "\uE994"
+        '100': "\uE995"
       callbacks:
-        on_left: toggle_card
-        on_middle: do_nothing
-        on_right: toggle_label
-      icons:
-        sunnyDay: "\uE706"
-        clearNight: "\uEC46"
-      weather_card:
-        blur: true
-        alignment: right
-        direction: down
-        icon_size: 32
-        show_hourly_forecast: true
-        time_format: 24h
-        hourly_point_spacing: 76
-        hourly_icon_size: 16
-        icon_smoothing: true
-        temp_line_width: 2
-        current_line_color: '#8EAEE8'
-        current_line_width: 1
-        current_line_style: dot
-        hourly_forecast_buttons:
-          enabled: false
-        weather_animation:
-          enabled: true
-          snow_overrides_rain: true
-          temp_line_animation_style: both
-          rain_effect_intensity: 1.0
-          snow_effect_intensity: 1.0
-          scale_with_chance: true
-  
-  github:
-    type: yasb.github.GithubWidget
-    options:
-      label: "<span>\uEBA1</span>"
-      label_alt: Notifications {data}
-      max_notification: 50
-      notification_dot:
-        enabled: true
-        corner: top_right
-        color: '#ef4747'
-        margin:
-        - 0
-        - 3
-      only_unread: false
-      show_comment_count: true
-      max_field_size: 54
-      update_interval: 300
-      icons:
-        comment: "\uE90A"
-      menu:
+        on_left: toggle_volume_menu
+        on_middle: "exec cmd.exe /c start ms-settings:sound"
+        on_right: toggle_mute
+      audio_menu:
         blur: true
         round_corners: true
         round_corners_type: normal
-        border_color: System
-        alignment: center
+        border_color: system
+        alignment: right
         direction: down
-        show_categories: true
-        categories_order:
-        - Issue
-        - PullRequest
-        - CheckSuite
-        - Release
-        - Discussion
-  
+        show_apps: true
+        show_app_labels: false
+        show_app_icons: true
+        show_apps_expanded: false
+        app_icons:
+          toggle_down: "\uE972"
+          toggle_up: "\uE971"
+
   microphone:
     type: yasb.microphone.MicrophoneWidget
     options:
@@ -734,4 +486,218 @@ widgets:
         on_left: toggle_mic_menu
         on_middle: toggle_label
         on_right: toggle_mute
+
+  bluetooth:
+    type: "yasb.bluetooth.BluetoothWidget"
+    options:
+      label: "<span>{icon}</span>"
+      label_alt: "{device_name}"
+      label_no_device: "NDC"
+      label_device_separator: ", "
+      max_length: 10
+      max_length_ellipsis: "..."
+      icons: 
+        bluetooth_on: "\udb80\udcaf"
+        bluetooth_off: "\udb80\udcb2"
+        bluetooth_connected: "\udb80\udcb1"
+      callbacks:
+        on_right: "exec cmd.exe /c start ms-settings:bluetooth"
+      label_shadow:
+        enabled: true
+        color: "black"
+        radius: 3
+        offset: [ 1, 1 ]
+
+  systeminfo-grouper:
+    type: "yasb.grouper.GrouperWidget"
+    options:
+      class_name: "grouped-widgets"
+      widgets: ["battery", "memory", "cpu", "gpu"]
+      container_padding:
+        top: 0
+        left: 2
+        bottom: 0
+        right: 6
+      collapse_options:
+        enabled: false
+        exclude_widgets: ["battery"]
+        expanded_label: "\uf054"
+        collapsed_label: "\uf053"
+        label_position: "left"
+
+  battery:
+    type: "yasb.battery.BatteryWidget"
+    options:
+      label: "<span>{icon}</span> {percent}%"
+      label_alt: "<span>{icon}</span> {percent}% | {power}W | {time_remaining}"
+      update_interval: 5000
+      time_remaining_natural: False
+      hide_unsupported: True
+      charging_options:
+        icon_format: "{charging_icon}"
+        blink_charging_icon: true
+        blink_interval: 500
+      status_thresholds:
+        critical: 10
+        low: 25
+        medium: 75
+        high: 95
+        full: 100
+      status_icons:
+        icon_charging: "\uf0e7"
+        icon_critical: "\uf244"
+        icon_low: "\uf243"
+        icon_medium: "\uf242"
+        icon_high: "\uf241"
+        icon_full: "\uf240"
+
+  memory:
+    type: "yasb.memory.MemoryWidget"
+    options:
+      label: "RAM {virtual_mem_percent}%"
+      label_alt: "VIRT: {virtual_mem_percent}% SWAP: {swap_mem_percent}%"
+      progress_bar:
+        enabled: true
+        position: "left"
+        size: 14
+        thickness: 2
+        color: "#91d7e3"
+        background_color: "#242739"
+      update_interval: 5000
+      callbacks:
+        on_left: "toggle_menu"
+        on_right: "toggle_label"
+      memory_thresholds:
+        low: 25
+        medium: 50
+        high: 90
+      histogram_icons:
+        - "\u2581" # 0%
+        - "\u2581" # 10%
+        - "\u2582" # 20%
+        - "\u2583" # 30%
+        - "\u2584" # 40%
+        - "\u2585" # 50%
+        - "\u2586" # 60%
+        - "\u2587" # 70%
+        - "\u2588" # 80%+
+      menu:
+        enabled: true
+        show_graph: true
+        show_graph_grid: true
+        graph_history_size: 60
   
+  cpu:
+    type: "yasb.cpu.CpuWidget"
+    options:
+      label: "CPU {info[percent][total]:.0f}%"
+      progress_bar:
+        enabled: true
+        position: "left"
+        size: 14
+        thickness: 2
+        color: "#91d7e3"
+        background_color: "#242739"
+      update_interval: 2000
+      cpu_thresholds:
+        low: 25
+        medium: 50
+        high: 90
+      histogram_icons:
+        - "\u2581" # 0%
+        - "\u2581" # 10%
+        - "\u2582" # 20%
+        - "\u2583" # 30%
+        - "\u2584" # 40%
+        - "\u2585" # 50%
+        - "\u2586" # 60%
+        - "\u2587" # 70%
+        - "\u2588" # 80% +
+      histogram_num_columns: 8
+      callbacks:
+        on_left: "toggle_menu"
+      menu:
+        enabled: true
+        show_graph: true
+        show_graph_grid: true
+        graph_history_size: 60
+
+  gpu:
+    type: "yasb.gpu.GpuWidget"
+    options:
+      label: "GPU {info[utilization]}%"
+      label_alt: "GPU {info[temp]}°C | {info[mem_used]} / {info[mem_total]}"
+      progress_bar:
+        enabled: true
+        position: "left"
+        size: 14
+        thickness: 2
+        color: "#91d7e3"
+        background_color: "#242739"
+      update_interval: 2000
+      gpu_thresholds:
+        low: 25
+        medium: 50
+        high: 90
+      histogram_icons:
+        - "\u2581" # 0%
+        - "\u2581" # 10%
+        - "\u2582" # 20%
+        - "\u2583" # 30%
+        - "\u2584" # 40%
+        - "\u2585" # 50%
+        - "\u2586" # 60%
+        - "\u2587" # 70%
+        - "\u2588" # 80% +
+      histogram_num_columns: 8
+      callbacks:
+        on_left: "toggle_menu"
+        on_right: "toggle_label"
+      menu:
+        enabled: true
+        show_graph: true
+        show_graph_grid: true
+        graph_history_size: 60
+   
+  power_menu:
+    type: "yasb.power_menu.PowerMenuWidget"
+    options:
+      label: "\uf011"
+      uptime: true
+      blur: false
+      blur_background: true
+      animation_duration: 200
+      button_row: 3
+      buttons:
+        shutdown: ["\uf011", "Shut Down"]
+        restart: ["\uead2", "Restart"]
+        signout: ["\udb80\udf43", "Sign out"]
+        hibernate: ["\uf28e", "Hibernate"]
+        sleep: ["\u23fe", "Sleep"]
+        cancel: ["\ueab8", "Close"]
+      container_padding:
+        top: 0
+        left: 0
+        bottom: 0
+        right: 6
+
+
+
+  update_check:
+    type: "yasb.update_check.UpdateCheckWidget"
+    options:
+      windows_update:
+        enabled: True
+        label: "<span>\uf0ab</span> {count}"
+        interval: 60
+        exclude: []
+      winget_update:
+        enabled: True
+        label: "<span>\uf0ab</span> {count}"
+        interval: 60
+        exclude: []
+      label_shadow:
+        enabled: true
+        color: "black"
+        radius: 3
+        offset: [ 1, 1 ]
