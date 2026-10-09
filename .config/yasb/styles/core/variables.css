@@ -1,0 +1,32 @@
+/* ==========================================================================
+   Palette de couleurs
+   Toutes les couleurs réutilisables du thème. Utilisation : var(--nom)
+   ========================================================================== */
+
+:root {
+    /* Accents */
+    --mauve: #f6efff;
+    --red: #fce7ed;
+    --yellow: #fcf5e4;
+    --orange: #fff4ec;
+    --blue: #e3ecfc;
+    --green: #effffc;
+    --lavender: #dee3ff;
+
+    /* Texte */
+    --text: #cdd6f4;
+    --subtext1: #bac2de;
+    --subtext0: #a6adc8;
+
+    /* Overlays */
+    --overlay2: #80848b;
+    --overlay1: #535558;
+    --overlay0: #444549;
+
+    /* Surfaces / fonds */
+    --surface2: #353638;
+    --surface1: #36373a;
+    --surface0: #212224;
+    --base: rgb(17, 18, 19);
+    --crust: #212224;
+}

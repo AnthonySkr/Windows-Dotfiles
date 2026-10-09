@@ -1,0 +1,127 @@
+/* ==========================================================================
+   Media (yasb.media.MediaWidget) + Cava (yasb.cava.CavaWidget)
+   ========================================================================== */
+
+.media-widget .label {
+    padding-right: 6px;
+}
+
+.cava-widget {
+    padding-left: 8px;
+    padding-right: 4px;
+}
+
+/* --- Menu ---------------------------------------------------------------- */
+
+.media-menu {
+    min-width: 430px;
+    max-width: 430px;
+    background-color: var(--crust);
+}
+
+/* Infos du morceau */
+.media-menu .title,
+.media-menu .artist,
+.media-menu .source {
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.media-menu .artist {
+    font-size: 11px;
+    color: #6c7086;
+    margin-top: 2px;
+    margin-bottom: 8px;
+}
+
+/* Badge de la source (navigateur / lecteur) */
+.media-menu .source {
+    font-size: 11px;
+    color: #000;
+    font-weight: normal;
+    border-radius: 3px;
+    background-color: #bac2de;
+    padding: 2px 4px;
+}
+
+.media-menu .source.firefox {
+    background-color: #ff583b;
+    color: #ffffff;
+}
+
+.media-menu .source.spotify {
+    background-color: #199143;
+    color: #ffffff;
+}
+
+.media-menu .source.edge,
+.media-menu .source.windows-media {
+    background-color: #0078d4;
+    color: #ffffff;
+}
+
+/* Boutons de contrôle */
+.media-menu .btn {
+    font-family: "Segoe Fluent Icons";
+    font-size: 14px;
+    font-weight: 400;
+    margin: 10px 2px 0px 2px;
+    min-width: 40px;
+    max-width: 40px;
+    min-height: 40px;
+    max-height: 40px;
+    border-radius: 20px;
+}
+
+.media-menu .btn.prev {
+    margin-left: 10px;
+}
+
+.media-menu .btn:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.media-menu .btn.play {
+    background-color: rgba(255, 255, 255, 0.1);
+    font-size: 20px;
+}
+
+.media-menu .btn.disabled:hover,
+.media-menu .btn.disabled {
+    color: #4e525c;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+/* Progression */
+.media-menu .playback-time {
+    font-size: 12px;
+    color: #7f849c;
+    margin-top: 2px;
+    min-width: 140px;
+}
+
+.media-menu .progress-slider {
+    height: 20px;
+    margin: 0 4px 5px 4px;
+    border-radius: 3px;
+}
+
+.media-menu .progress-slider::groove {
+    height: 2px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.media-menu .progress-slider::groove:hover {
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.media-menu .progress-slider::sub-page {
+    background: var(--blue);
+    border-radius: 3px;
+    height: 4px;
+}

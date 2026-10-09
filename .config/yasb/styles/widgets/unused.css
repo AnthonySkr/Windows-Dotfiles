@@ -1,0 +1,110 @@
+/* ==========================================================================
+   Widgets non utilisés actuellement dans config.yaml
+   (language, systray, notifications) — gardés pour plus tard.
+   ========================================================================== */
+
+/* --- Language (yasb.language.LanguageWidget) ----------------------------- */
+
+.language-widget .icon {
+    color: var(--green);
+}
+
+.language-menu {
+    background-color: var(--crust);
+    min-width: 300px;
+}
+
+.language-menu .header {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+    padding: 12px;
+}
+
+.language-menu .footer {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 12px;
+    margin-top: 2px;
+    color: #9399b2;
+}
+
+.language-menu .footer:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.language-menu .language-item {
+    padding: 6px 12px;
+    margin: 2px 4px;
+}
+
+.language-menu .language-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.language-menu .language-item.active,
+.language-menu .language-item.active:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.language-menu .language-item .code {
+    font-weight: 900;
+    font-size: 14px;
+    min-width: 40px;
+    text-transform: uppercase;
+}
+
+.language-menu .language-item .icon {
+    font-size: 16px;
+    margin-right: 8px;
+    color: #fff;
+}
+
+.language-menu .language-item .name {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.language-menu .language-item .layout {
+    font-weight: 600;
+    font-size: 12px;
+}
+
+/* --- Systray (yasb.systray.SystrayWidget) -------------------------------- */
+
+.systray {
+    background: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.systray .button {
+    border-radius: 4px;
+    padding: 2px 2px;
+    background-color: transparent;
+}
+
+.systray .unpinned-visibility-btn {
+    height: 20px;
+    width: 16px;
+    background-color: transparent;
+    border: none;
+    font-size: 14px;
+}
+
+.systray .button:hover,
+.systray .unpinned-visibility-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.systray .unpinned-visibility-btn:hover {
+    border-radius: 4px;
+}
+
+/* --- Notifications (yasb.notifications.NotificationsWidget) -------------- */
+
+.notification-widget .icon.new-notification {
+    color: var(--blue);
+}

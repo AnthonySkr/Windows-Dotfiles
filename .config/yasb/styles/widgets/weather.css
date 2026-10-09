@@ -1,0 +1,67 @@
+/* ==========================================================================
+   Weather (yasb.weather.WeatherWidget) + carte météo
+   ========================================================================== */
+
+.weather-widget .icon {
+    font-size: 14px;
+    color: var(--yellow);
+}
+
+/* --- Carte --------------------------------------------------------------- */
+
+.weather-card {
+    background-color: var(--crust);
+}
+
+/* Aujourd'hui */
+.weather-card-today .label {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.weather-card-today .label.location {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.weather-card-today .label.alert {
+    font-size: 13px;
+    font-weight: 600;
+    background-color: rgba(247, 175, 42, 0.05);
+    border: 1px solid rgba(247, 209, 42, 0.1);
+    color: rgba(196, 181, 162, 0.85);
+    border-radius: 6px;
+    padding: 5px 0;
+}
+
+/* Jours suivants */
+.weather-card-day {
+    border-radius: 6px;
+    background-color: var(--crust);
+}
+
+.weather-card-day .label {
+    font-size: 13px;
+}
+
+.weather-card-day.active {
+    background-color: rgba(40, 40, 60, 0.6);
+    border: 1px solid rgba(50, 50, 75, 1);
+}
+
+.weather-card-day:hover {
+    background-color: rgba(40, 40, 60, 0.6);
+}
+
+/* Prévisions horaires */
+.weather-card .hourly-container {
+    border: none;
+    background-color: rgba(40, 40, 60, 0.0);
+    min-height: 150px;
+}
+
+.weather-card .hourly-data {
+    background-color: #FAE93F;
+    font-size: 11px;
+    font-weight: bold;
+}

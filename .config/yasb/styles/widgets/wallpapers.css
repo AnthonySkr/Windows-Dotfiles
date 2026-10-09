@@ -1,0 +1,9 @@
+/* ==========================================================================
+   Wallpapers (yasb.wallpapers.WallpapersWidget)
+   ========================================================================== */
+
+.wallpapers-widget .icon {
+    font-size: 16px;
+    color: var(--text);
+    padding-left: 6px;
+}

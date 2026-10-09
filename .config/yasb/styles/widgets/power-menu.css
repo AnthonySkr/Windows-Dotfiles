@@ -1,0 +1,60 @@
+/* ==========================================================================
+   Power menu (yasb.power_menu.PowerMenuWidget)
+   ========================================================================== */
+
+.power-menu-widget .label {
+    color: var(--red);
+    font-size: 15px;
+}
+
+/* --- Popup plein écran --------------------------------------------------- */
+
+.power-menu-popup {
+    background-color: transparent;
+}
+
+.power-menu-popup .button {
+    padding: 0;
+    width: 180px;
+    height: 230px;
+    border-radius: 0;
+    background-color: var(--crust);
+    color: var(--green);
+    border: 4px solid rgba(58, 83, 80, 0);
+    margin: 0px;
+}
+
+.power-menu-popup .button.hover {
+    border: 4px solid #94e2d5;
+}
+
+.power-menu-popup .button .label {
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--green);
+}
+
+.power-menu-popup .button .icon {
+    font-size: 64px;
+    padding-top: 32px;
+    color: var(--green);
+}
+
+/* Bouton "Close" */
+.power-menu-popup .button.cancel.hover {
+    border: 4px solid #e29494;
+}
+
+.power-menu-popup .button.cancel .icon,
+.power-menu-popup .button.cancel .label {
+    color: var(--red);
+}
+
+/* Uptime affiché sous les boutons */
+.uptime {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: var(--surface2);
+    font-weight: 600;
+}

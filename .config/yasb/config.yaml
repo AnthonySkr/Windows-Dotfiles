@@ -1,3 +1,8 @@
+# ==========================================================================
+# YASB — configuration
+# Styles : styles.css (importe les fichiers de styles/)
+# ==========================================================================
+
 watch_stylesheet: true
 watch_config: true
 debug: false
@@ -59,8 +64,15 @@ bars:
       - power_menu
 
 
+# ==========================================================================
+# Widgets — classés dans l'ordre de la barre (gauche / centre / droite)
+# ==========================================================================
 widgets:
-# Left
+
+  # ======================================================================
+  # GAUCHE
+  # ======================================================================
+
   home:
     type: yasb.home.HomeWidget
     options:
@@ -112,33 +124,33 @@ widgets:
           screen: "cursor"
 
   komorebi_control:
-      type: "komorebi.control.KomorebiControlWidget"
-      options:
-        label: "<span>\ueb7f</span>"
-        icons:
-          start: "\uead3"
-          stop: "\uead7"
-          reload: "\uead2"
-        config_path: "C:\\Users\\askrzypczak\\.config\\komorebi\\komorebi.json"
-        run_ahk: false
-        run_whkd: true
-        run_masir: false
-        show_version: true
-        komorebi_menu:
-          blur: true
-          round_corners: true
-          round_corners_type: "normal"
-          border_color: "None"
-          alignment: "right"
-          direction: "down"
-          offset_top: 1
- 
+    type: "komorebi.control.KomorebiControlWidget"
+    options:
+      label: "<span>\ueb7f</span>"
+      icons:
+        start: "\uead3"
+        stop: "\uead7"
+        reload: "\uead2"
+      config_path: "C:\\Users\\askrzypczak\\.config\\komorebi\\komorebi.json"
+      run_ahk: false
+      run_whkd: true
+      run_masir: false
+      show_version: true
+      komorebi_menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "None"
+        alignment: "right"
+        direction: "down"
+        offset_top: 1
+
   komorebi_active_layout:
     type: "komorebi.active_layout.ActiveLayoutWidget"
     options:
       hide_if_offline: true
       label: "{icon} {layout_name}"
-      layouts: ['bsp', 'columns', 'rows', 'grid', 'scrolling', 'vertical_stack', 'horizontal_stack', 'ultrawide_vertical_stack','right_main_vertical_stack']      
+      layouts: ['bsp', 'columns', 'rows', 'grid', 'scrolling', 'vertical_stack', 'horizontal_stack', 'ultrawide_vertical_stack','right_main_vertical_stack']
       layout_icons:
         bsp: "\uebeb"
         columns: "\uebf7"
@@ -272,24 +284,9 @@ widgets:
         prev_track: "\ue892"
         next_track: "\ue893"
 
-  cava:
-    type: "yasb.cava.CavaWidget"
-    options:
-      bar_height: 12
-      min_bar_height: 1
-      gradient: 0
-      foreground: "#89b4fa"
-      gradient_color_1: "#74c7ec"
-      gradient_color_2: "#89b4fa"
-      gradient_color_3: "#cba6f7"
-      bars_number: 6
-      bar_spacing: 2
-      bar_width: 4
-      bar_type: "bars"
-      framerate: 60
-      hide_empty: false
-
-# Center
+  # ======================================================================
+  # CENTRE
+  # ======================================================================
 
   clock:
     type: "yasb.clock.ClockWidget"
@@ -333,7 +330,7 @@ widgets:
           key_replace: "\ue70f"
         - key: "ctrl"
           key_replace: "Ctrl"
-        - key: "alt" 
+        - key: "alt"
           key_replace: "Alt"
         - key: "shift"
           key_replace: "Shift"
@@ -345,7 +342,6 @@ widgets:
           key_replace: "\u2191"
         - key: "down"
           key_replace: "\u2193"
-
 
   weather:
     type: "yasb.weather.WeatherWidget"
@@ -394,7 +390,9 @@ widgets:
         current_line_width: 2
         current_line_style: "dot"
 
-# Right
+  # ======================================================================
+  # DROITE
+  # ======================================================================
 
   brightness:
     type: "yasb.brightness.BrightnessWidget"
@@ -496,7 +494,7 @@ widgets:
       label_device_separator: ", "
       max_length: 10
       max_length_ellipsis: "..."
-      icons: 
+      icons:
         bluetooth_on: "\udb80\udcaf"
         bluetooth_off: "\udb80\udcb2"
         bluetooth_connected: "\udb80\udcb1"
@@ -586,7 +584,7 @@ widgets:
         show_graph: true
         show_graph_grid: true
         graph_history_size: 60
-  
+
   cpu:
     type: "yasb.cpu.CpuWidget"
     options:
@@ -658,7 +656,7 @@ widgets:
         show_graph: true
         show_graph_grid: true
         graph_history_size: 60
-   
+
   power_menu:
     type: "yasb.power_menu.PowerMenuWidget"
     options:
@@ -681,7 +679,26 @@ widgets:
         bottom: 0
         right: 6
 
+  # ======================================================================
+  # NON UTILISÉS (définis mais absents de la barre)
+  # ======================================================================
 
+  cava:
+    type: "yasb.cava.CavaWidget"
+    options:
+      bar_height: 12
+      min_bar_height: 1
+      gradient: 0
+      foreground: "#89b4fa"
+      gradient_color_1: "#74c7ec"
+      gradient_color_2: "#89b4fa"
+      gradient_color_3: "#cba6f7"
+      bars_number: 6
+      bar_spacing: 2
+      bar_width: 4
+      bar_type: "bars"
+      framerate: 60
+      hide_empty: false
 
   update_check:
     type: "yasb.update_check.UpdateCheckWidget"
