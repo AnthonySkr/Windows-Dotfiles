@@ -1,0 +1,143 @@
+/* ==========================================================================
+   Infos système : Memory, CPU, GPU (systeminfo-grouper)
+   Les trois popups partagent le même style ; les spécificités sont en bas.
+   ========================================================================== */
+
+.memory-widget .label,
+.cpu-widget .label,
+.gpu-widget .widget-container .label {
+    padding-right: 8px;
+}
+
+/* --- Popups (communs) ---------------------------------------------------- */
+
+.memory-popup,
+.cpu-popup,
+.gpu-popup {
+    background-color: rgba(28, 28, 28, 0.7);
+    min-width: 400px;
+}
+
+/* En-tête */
+.memory-popup .header,
+.cpu-popup .header,
+.gpu-popup .header {
+    background: transparent;
+    padding: 12px 16px;
+}
+
+.memory-popup .header .text,
+.cpu-popup .header .text,
+.gpu-popup .header .text {
+    font-size: 16px;
+    font-family: "Segoe UI";
+    color: rgb(255, 255, 255);
+}
+
+.memory-popup .header .pin-btn,
+.cpu-popup .header .pin-btn,
+.gpu-popup .header .pin-btn {
+    font-size: 14px;
+    background: transparent;
+    font-family: "Segoe Fluent Icons";
+    border: none;
+    padding: 6px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.memory-popup .header .pin-btn:hover,
+.cpu-popup .header .pin-btn:hover,
+.gpu-popup .header .pin-btn:hover {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.memory-popup .header .pin-btn.pinned,
+.cpu-popup .header .pin-btn.pinned,
+.gpu-popup .header .pin-btn.pinned {
+    color: #ffffff;
+}
+
+/* Graphiques */
+.memory-popup .graph-container,
+.cpu-popup .graph-container,
+.gpu-popup .graph-container {
+    background: transparent;
+    min-height: 64px;
+}
+
+.memory-popup .graph-title,
+.cpu-popup .graph-title,
+.gpu-popup .graph-title {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'Segoe UI';
+    padding: 0px 0px 4px 14px;
+}
+
+/* Couleur des courbes */
+.memory-popup .memory-graph,
+.cpu-popup .cpu-graph,
+.gpu-popup .gpu-graph {
+    color: #0f6bff;
+}
+
+/* Couleur de la grille */
+.memory-popup .memory-graph-grid,
+.cpu-popup .cpu-graph-grid,
+.gpu-popup .gpu-graph-grid,
+.gpu-popup .gpu-temp-graph-grid {
+    color: rgba(255, 255, 255, 0.05);
+}
+
+/* Grille de stats */
+.memory-popup .stats,
+.cpu-popup .stats,
+.gpu-popup .stats {
+    background: transparent;
+    padding: 16px;
+}
+
+.memory-popup .stats .stat-item,
+.cpu-popup .stats .stat-item,
+.gpu-popup .stats .stat-item {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin: 8px;
+}
+
+.memory-popup .stats .stat-label,
+.cpu-popup .stats .stat-label,
+.gpu-popup .stats .stat-label {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.65);
+    font-family: 'Segoe UI';
+    font-weight: 400;
+    padding: 6px 4px 2px 4px;
+}
+
+.memory-popup .stats .stat-value,
+.cpu-popup .stats .stat-value,
+.gpu-popup .stats .stat-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    font-family: 'Segoe UI';
+    padding: 0 4px 12px 4px;
+}
+
+/* --- Spécificités GPU (2 graphiques : utilisation + température) --------- */
+
+.gpu-popup .gpu-temp-graph {
+    color: #ff6b35;
+}
+
+/* Espace entre les deux graphiques */
+.gpu-popup .graph-title {
+    margin-top: 12px;
+}
+
+.gpu-popup .graph-title.first {
+    margin-top: 0px;
+}

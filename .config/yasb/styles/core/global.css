@@ -1,0 +1,37 @@
+/* ==========================================================================
+   Styles globaux : valeurs par défaut, barre, tooltip
+   ========================================================================== */
+
+/* Valeurs par défaut */
+* {
+    font-size: 12px;
+    color: var(--text);
+    font-weight: 600;
+    font-family: "JetBrainsMono NFP";
+    margin: 0;
+    padding: 0;
+}
+
+/* Barre */
+.yasb-bar {
+    padding: 0 10px;
+    margin: 0;
+    background-color: var(--crust);
+}
+
+/* Tooltip */
+.tooltip {
+    background-color: var(--base);
+    border: 1px solid var(--surface0);
+    border-radius: 4px;
+    color: var(--text);
+    padding: 4px 8px 5px 8px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+/* Barres de progression circulaires (memory / cpu / gpu) */
+.progress-circle {
+    padding-right: 4px;
+}

@@ -1,0 +1,26 @@
+/* ==========================================================================
+   Styles de base communs à tous les widgets + groupes (GrouperWidget)
+   ========================================================================== */
+
+.widget {
+    padding: 0px 3px;
+    margin: 0;
+}
+
+.widget .icon {
+    font-size: 11px;
+    padding-right: 4px;
+}
+
+.widget .label {
+    padding: 0px 2px;
+}
+
+/* Conteneur des groupes : komorebi-workspace-grouper, media-grouper,
+   systeminfo-grouper (class_name: "grouped-widgets" dans config.yaml) */
+.grouped-widgets .container {
+    background-color: var(--base);
+    margin: 4px 0 4px 0;
+    border-radius: 12px;
+    border: 1px solid var(--surface1);
+}
